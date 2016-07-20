@@ -135,7 +135,7 @@ func unmarshal(data string, v reflect.Value) (int, error) {
 		}
 	case '~':
 		switch kind {
-		case reflect.Interface, reflect.Map, reflect.Ptr, reflect.Slice:
+		case reflect.Interface, reflect.Map, reflect.Ptr, reflect.Slice, reflect.Struct:
 			v.Set(reflect.Zero(v.Type()))
 		default:
 			return 0, errors.New("tnetstring: invalid value to unmarshal into")
